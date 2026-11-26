@@ -1,0 +1,9 @@
+# App routes get the app shell (app.html, served at /app). "/" is the pre-rendered landing page.
+# Explicit routes keep assets untouched; anything else falls back to index.html, which renders the 404 page.
+/committee      /app   200
+/committee/*    /app   200
+/faculty        /app   200
+/faculty/*      /app   200
+/student        /app   200
+/calculator     /app   200
+/perf           /app   200

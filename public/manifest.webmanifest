@@ -1,0 +1,17 @@
+{
+  "name": "CMS Business School Timetable",
+  "short_name": "CMS Timetable",
+  "description": "Your CMS Business School timetable: today first, changes flagged. Lalbagh Campus.",
+  "start_url": "/student",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8F6F0",
+  "theme_color": "#1F3864",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
