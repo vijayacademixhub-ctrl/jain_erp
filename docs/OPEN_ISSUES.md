@@ -29,3 +29,21 @@
   against student-master strengths.
 - A2 — Faculty natural key = short code; profile/login attached later via Q5.
 - A3 — Course codes recur across programmes → composite subject key.
+
+## Update — session 2
+- D8 — **Free tier only** until college approval. No Supabase Pro / Vercel Pro yet. Supabase
+  branching (Pro) skipped; academic schema applied additively to the free project instead,
+  fully reversible via `supabase/migrations/academic/DOWN_0001-0003_rollback.sql`.
+  Firebase not needed — free Supabase is sufficient for M1–M5 at this data scale.
+- D9 — Logins: USN + issued passwords; Vijay supplies an ID/password document to load.
+- D10 — Q4 resolved: the provided **Master Timetable (Even Sem 2027)** is authoritative.
+- D11 — Assessments: faculty design their own type; publish marks only; 6–7 assessments +
+  5 exams per class; beyond that needs super_admin approval. See ASSESSMENT_MODULE.md.
+- D12 — Every record exportable as **PDF + Excel** by default; daily TT WhatsApp-ready,
+  no alignment issues. Shared, tested export component.
+
+## M1 progress
+- [x] academic_0001 structure · [x] academic_0002 identity/roles · [x] academic_0003 timetable/attendance
+- [x] RLS enabled default-deny on all 24 academic tables
+- [ ] RLS policies per matrix (0007) · [ ] impersonation audit RPC (0008) · [ ] seed roles (0009)
+- [ ] records/verification (0004) · [ ] assessments/notifications (0005) · [ ] governance/import (0006)

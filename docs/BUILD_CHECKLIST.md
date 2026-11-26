@@ -44,7 +44,7 @@ records, room equipment/building data, ERP identification, department structure.
 
 ## M1 — Database & identity foundation `[ ]`
 
-- [ ] Finalise schema from the ER diagram **plus the 15 corrections in §"ER gaps" below**
+- [x] Academic schema 0001-0003 applied to Supabase (free tier, additive, RLS on, 24 tables)
 - [ ] Version-controlled migrations (no ad-hoc SQL)
 - [ ] Supabase Auth; decide identity source for 2,603 students + 68 faculty (**Q5**)
 - [ ] Roles: Student, Faculty, Admin, Committee/Area Chair, IQAC, Super Admin
