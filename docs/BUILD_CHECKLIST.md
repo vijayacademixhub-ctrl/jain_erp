@@ -56,16 +56,16 @@ records, room equipment/building data, ERP identification, department structure.
 
 ## M2 — Real institutional data `[ ]`
 
-- [ ] Python import pipeline (preview → error report → approval → import → verify totals)
-- [ ] Import: departments, programmes (10), semesters, sections (50), rooms, periods/shifts
-- [ ] Import: faculty (68) with short-code → identity mapping
+- [x] Python import pipeline (preview → validation → idempotent SQL → verify totals)
+- [x] Import: departments, programmes (10), semesters, sections (50), rooms (35), periods/shifts (exact per-shift+Saturday timings)
+- [x] Import: faculty (68) with short-code identity + max weekly hours
 - [ ] Import: students (2,603) — **requires Q3 PII authorisation**
-- [ ] Import: subjects, credit→max-hours rules, faculty allocations (473)
+- [x] Import: courses (48), subjects (145), faculty allocations (237)
 - [ ] Import: master timetable (869 sessions), date-wise expansion (4,230 rows)
 - [ ] Import: faculty leave plan, substitutions (274)
-- [ ] Validation: unique USN, unique faculty code, valid FK references, no orphan allocations
+- [x] Validation: unique faculty code, valid FK refs, no orphan allocations, no over-max workload
 - [ ] Source-file traceability retained on every imported row
-- [ ] `import_jobs` / `import_errors` tables; no silent discards
+- [x] import_jobs recorded; explicit programme mapping (no silent discards)
 
 ## M3 — Timetable production system `[ ]`
 

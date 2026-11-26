@@ -47,3 +47,13 @@
 - [x] RLS enabled default-deny on all 24 academic tables
 - [ ] RLS policies per matrix (0007) · [ ] impersonation audit RPC (0008) · [ ] seed roles (0009)
 - [ ] records/verification (0004) · [ ] assessments/notifications (0005) · [ ] governance/import (0006)
+
+## M2 structural import — done (session 3)
+- Imported 10 programmes, 3 semesters, 3 shifts, 35 rooms, 68 faculty, 48 courses,
+  145 subjects, 237 allocations, 50 sections. All verified, 0 validation errors.
+- Vijay ('VIJAY', Vijay Mourish DG) is present in the faculty workload sheet (Intro to AI,
+  1 hr, BBA Branding 6th sem) — noted; his master_admin/super_admin grants come with 0009.
+- Programme abbreviations used as codes (BBA-C, BBA-BA, BBA-SF, ...) — stable & unique;
+  can be renamed later without data loss.
+- Deferred to the student step: student_enrolments (needs USN accounts). Faculty short codes
+  are the identity key until logins are issued.
