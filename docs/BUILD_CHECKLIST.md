@@ -45,12 +45,12 @@ records, room equipment/building data, ERP identification, department structure.
 ## M1 — Database & identity foundation `[ ]`
 
 - [x] Academic schema 0001-0003 applied to Supabase (free tier, additive, RLS on, 24 tables)
-- [ ] Version-controlled migrations (no ad-hoc SQL)
+- [x] Version-controlled migrations 0001-0008 (structure, identity, timetable, records, assessments, governance, RLS, impersonation)
 - [ ] Supabase Auth; decide identity source for 2,603 students + 68 faculty (**Q5**)
-- [ ] Roles: Student, Faculty, Admin, Committee/Area Chair, IQAC, Super Admin
+- [x] Roles enum + grant table (7 roles, multi-role)
 - [ ] Multi-role support per person
-- [ ] Row Level Security on every table, default deny
-- [ ] `ROLE_PERMISSION_MATRIX.md` written and approved before coding policies
+- [x] RLS on all 38 academic tables + policies per matrix
+- [x] ROLE_PERMISSION_MATRIX.md written; policies coded to it
 - [ ] Dev / staging / production environments separated
 - [ ] RLS test suite: faculty cannot read another faculty's records; student cannot read another student's
 

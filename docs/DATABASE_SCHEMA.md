@@ -26,3 +26,17 @@ the database yet** — these are reviewable files pending approval.
 6. `attendance_sessions` separates `subject_faculty_id` from `taken_by_faculty_id` → the
    substitute rule, and `unique(entry_id, class_date)` prevents duplicate sessions.
 7. Every `*_by` column references a real profile; `published_by` is never a hardcoded string.
+
+## Applied status (session 2)
+All of 0001–0008 are applied to the free `academicos` project, additively.
+- 38 academic tables, RLS enabled on every one.
+- 182 total policies in public (academic + existing academicos).
+- 9 academic helper functions: has_academic_role, is_master_admin, is_academic_admin,
+  current_faculty_id, current_student_id, faculty_can_mark, guard_assessment_limit,
+  begin_impersonation, end_impersonation.
+- 14 record categories seeded; assessment/exam limit trigger live.
+- Rollback: `DOWN_0001-0008_rollback.sql`.
+
+Still to do in M1: behavioural RLS tests with real auth users (needs test accounts or
+the seeded admin credentials), and migration 0009 seeding master/super/admin roles
+(waits on Vijay's ID/password document).
