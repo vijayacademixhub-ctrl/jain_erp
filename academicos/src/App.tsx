@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import StudentHome from './pages/student/StudentHome';
 import FacultyHome from './pages/faculty/FacultyHome';
 import FacultyAttendance from './pages/faculty/FacultyAttendance';
+import FacultyAssessments from './pages/faculty/FacultyAssessments';
 import CommitteeHome from './pages/committee/CommitteeHome';
 import DailyChanges from './pages/committee/DailyChanges';
 import AdminHome from './pages/admin/AdminHome';
@@ -32,6 +33,7 @@ export default function App() {
       <Route path="/student" element={<StudentHome />} />
       <Route path="/faculty" element={<FacultyHome />} />
       <Route path="/faculty/attendance" element={<FacultyAttendance />} />
+      <Route path="/faculty/assessments" element={<FacultyAssessments />} />
       <Route path="/committee" element={<CommitteeHome />} />
       <Route path="/committee/daily" element={<DailyChanges />} />
       <Route path="/admin" element={<AdminHome />} />

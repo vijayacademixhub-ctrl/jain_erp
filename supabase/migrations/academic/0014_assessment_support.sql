@@ -1,0 +1,2 @@
+-- Applied: v_faculty_subjects (subject+section a faculty teaches), v_section_roster,
+-- set_marks_published(assessment, published) RPC (owner/admin; flips marks visibility, audited).

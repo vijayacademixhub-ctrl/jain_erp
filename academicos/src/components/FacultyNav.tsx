@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-const tabs = [{ to: '/faculty', label: 'My Timetable' }, { to: '/faculty/attendance', label: 'Attendance' }];
+const tabs = [{ to: '/faculty', label: 'My Timetable' }, { to: '/faculty/attendance', label: 'Attendance' }, { to: '/faculty/assessments', label: 'Assessments' }];
 export function FacultyNav() {
   const { pathname } = useLocation();
   return (
