@@ -97,15 +97,15 @@ records, room equipment/building data, ERP identification, department structure.
 - [ ] Attendance analytics: subject-wise, shortage alerts, remedial tracking, correction requests
 - [x] Assessments: creation (own type), 7/5 per-class limit enforced, marks entry (grid + Excel round-trip)
 - [x] Marks visibility gated by publication status (publish RPC; students see published only)
-- [ ] Faculty academic records (My Records): 14 categories, evidence upload, verification status
+- [x] Faculty academic records (My Records): 14 categories, evidence upload (private bucket), submit
 - [x] Substitute assignment (daily changes): workload moves to substitute, both faculty on attendance record
 - [ ] Workload engine: daily/weekly/monthly/semester, planned vs recorded kept distinct
 - [ ] Excel exports
 
-## M6 — Institutional intelligence `[ ]`
+## M6 — Institutional intelligence `[~]`
 
 - [ ] Analytics: student, faculty, timetable, academic office (with freshness + period labels)
-- [ ] Committee verification workflow (approve/reject/return + comments + history)
+- [x] Committee/IQAC verification workflow (approve/reject/return + comments + append-only history)
 - [ ] NAAC/IQAC exports traceable to verified source records — **no compliance claims without approved mapping**
 - [ ] Academic Office operations — **much of this already exists in `academicos` (see Q1)**
 - [ ] AI assistant over authorised data only, permission-aware retrieval

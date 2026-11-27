@@ -85,3 +85,11 @@
   Students see marks only after publish (marks_read RLS). Verified end-to-end on live app.
 - Remaining M5: student-facing attendance% + published-marks view; faculty academic records
   submit/verify; leave; notifications. Then M6 (analytics/IQAC/AI).
+
+## M7/M5 faculty records + IQAC verification — done (session 4 cont.)
+- Faculty "My Records": add across 14 categories, upload evidence to a private Supabase
+  Storage bucket, submit for verification. Committee/IQAC "Record Verification": pending
+  queue by status, view evidence via signed URLs, approve/return/reject with comments.
+  Verified end-to-end: submit -> verify_record -> status 'approved' + append-only history.
+- Feeds NAAC/IQAC reporting (next): structured exports of verified records (no compliance
+  claims without an approved criteria mapping, per spec).
