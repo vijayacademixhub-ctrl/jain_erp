@@ -20,6 +20,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   async function loadContext(s: Session | null) {
+    setLoading(true);
     if (!s) { setProfile(null); setRoles([]); setLoading(false); return; }
     const [{ data: prof }, { data: roleRows }] = await Promise.all([
       supabase.from('profiles').select('id,full_name,email,status').eq('id', s.user.id).maybeSingle(),
