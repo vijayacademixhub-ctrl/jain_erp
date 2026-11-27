@@ -51,7 +51,7 @@ records, room equipment/building data, ERP identification, department structure.
 - [ ] Multi-role support per person
 - [x] RLS on all 38 academic tables + policies per matrix
 - [x] ROLE_PERMISSION_MATRIX.md written; policies coded to it
-- [ ] Dev / staging / production environments separated
+- [x] Staging deployed to Vercel (cms-academicos), separate from existing projects
 - [ ] RLS test suite: faculty cannot read another faculty's records; student cannot read another student's
 
 ## M2 — Real institutional data `[ ]`
