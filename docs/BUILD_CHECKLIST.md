@@ -76,7 +76,7 @@ records, room equipment/building data, ERP identification, department structure.
 - [x] 3 published master versions (per semester); no snapshot cap
 - [ ] Publish workflow: validate → check conflicts → store version → fan out to dashboards → recalc workload → notify → retain history
 - [ ] Authorised unpublish/withdrawal
-- [ ] Change management: temporary, permanent, substitution, room change, special/extra class, cancellation
+- [x] Change management RPC: substitution (live), room change, cancellation, extra/special, swap
 - [x] Combined multi-section sessions imported (1,339 section links; up to 15-section classes)
 - [ ] Clash rules: faculty double-book, room double-book, section conflict, invalid faculty–subject mapping, invalid room, overlapping periods, availability
 - [x] 869 real sessions imported, clash-verified (0 faculty/room double-bookings)
@@ -98,7 +98,7 @@ records, room equipment/building data, ERP identification, department structure.
 - [ ] Assessments: creation, schedule, allocation, completion tracking, marks entry/verification
 - [ ] Marks visibility gated by publication status
 - [ ] Faculty academic records (My Records): 14 categories, evidence upload, verification status
-- [ ] Leave management + substitute assignment (real data already models this)
+- [x] Substitute assignment (daily changes): workload moves to substitute, both faculty on attendance record
 - [ ] Workload engine: daily/weekly/monthly/semester, planned vs recorded kept distinct
 - [ ] Excel exports
 
