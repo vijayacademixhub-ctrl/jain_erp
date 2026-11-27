@@ -29,9 +29,11 @@ export default function StudentHome() {
       .select('semesters!inner(semester_number),sections!inner(label)')
       .limit(1)
       .then(({ data }) => {
-        const row = (data ?? [])[0] as { semesters?: { semester_number: number }[]; sections?: { label: string }[] } | undefined;
-        const sm = row?.semesters?.[0]?.semester_number;
-        const lb = row?.sections?.[0]?.label;
+        type Emb<T> = T | T[] | undefined;
+        const one = <T,>(e: Emb<T>): T | undefined => (Array.isArray(e) ? e[0] : e);
+        const row = (data ?? [])[0] as { semesters?: Emb<{ semester_number: number }>; sections?: Emb<{ label: string }> } | undefined;
+        const sm = one(row?.semesters)?.semester_number;
+        const lb = one(row?.sections)?.label;
         if (sm) setSem(sm);
         if (lb) setSection(lb);
       });
