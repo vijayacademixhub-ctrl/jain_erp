@@ -46,7 +46,7 @@ records, room equipment/building data, ERP identification, department structure.
 
 - [x] Academic schema 0001-0003 applied to Supabase (free tier, additive, RLS on, 24 tables)
 - [x] Version-controlled migrations 0001-0008 (structure, identity, timetable, records, assessments, governance, RLS, impersonation)
-- [ ] Supabase Auth; decide identity source for 2,603 students + 68 faculty (**Q5**)
+- [x] Supabase Auth; 2,603 students + 68 faculty real logins created (USN/code initial password)
 - [x] Roles enum + grant table (7 roles, multi-role)
 - [ ] Multi-role support per person
 - [x] RLS on all 38 academic tables + policies per matrix

@@ -100,3 +100,11 @@
   criteria are not auto-assigned (map per the institution's approved framework), per spec.
 - Note: verification history is FK-protected (a verified record can't be hard-deleted),
   which is correct append-only behaviour.
+
+## Credentials blocker RESOLVED (session 4 cont.)
+- Created real logins for ALL 2,603 students + 68 faculty from the actual data (no document
+  needed). Active profiles, student/faculty roles, linked to domain rows. Initial password =
+  USN (students) / faculty code (faculty), hashed in-DB; synthetic login email until
+  institutional emails arrive. Login accepts bare USN/code. Credentials workbook delivered
+  to the owner (not committed). Recommend forced password change on first login.
+- Verified: real faculty (DA) and real student logins work with correct roles/data.
