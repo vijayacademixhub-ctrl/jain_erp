@@ -1,0 +1,6 @@
+-- 0046 Fixed blocks + severity clash tiers
+-- timetable_entries.fixed_label; tt_grid returns it; tt_add_fixed(version,day,
+-- period,label,section,room?) adds a non-subject block (section+room clash-checked).
+-- tt_version_clashes now returns tiers: critical (faculty/room/section double-book),
+-- warning (room capacity < section strength), advisory (faculty 4+ consecutive
+-- periods; subject placed beyond its credit hours).

@@ -1,0 +1,2 @@
+-- 0047 tt_version_clashes: rename OUT columns (c_day,c_period) to avoid
+-- ambiguity with table columns in GROUP BY.
