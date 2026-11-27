@@ -104,7 +104,7 @@ records, room equipment/building data, ERP identification, department structure.
 
 ## M6 — Institutional intelligence `[~]`
 
-- [ ] Analytics: student, faculty, timetable, academic office (with freshness + period labels)
+- [x] Analytics dashboard: student/faculty/timetable/verification KPIs + breakdowns, freshness timestamp, PDF/Excel
 - [x] Committee/IQAC verification workflow (approve/reject/return + comments + append-only history)
 - [x] NAAC/IQAC exports (PDF+Excel) traceable to verified records; no auto criteria mapping (explicit note)
 - [ ] Academic Office operations — **much of this already exists in `academicos` (see Q1)**
