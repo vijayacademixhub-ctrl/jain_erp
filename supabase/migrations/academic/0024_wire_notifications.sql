@@ -1,0 +1,2 @@
+-- Applied: record_tt_change now notifies substitute + original faculty + affected students;
+-- verify_record notifies the record owner.

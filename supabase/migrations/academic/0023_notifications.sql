@@ -1,0 +1,2 @@
+-- Applied: app_notifications table + RLS (own), notify()/notify_entry_students() helpers,
+-- my_notifications()/mark_notifications_read() RPCs.

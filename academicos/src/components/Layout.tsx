@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth, ROLE_LABEL, primaryRole } from '../lib/auth';
+import { NotificationBell } from './NotificationBell';
 
 export function Layout({ title, children }: { title: string; children: ReactNode }) {
   const { profile, roles, signOut } = useAuth();
@@ -19,6 +20,7 @@ export function Layout({ title, children }: { title: string; children: ReactNode
             <div className="text-[12.5px] font-medium">{profile?.full_name ?? '—'}</div>
             <div style={{ color: 'var(--muted)' }} className="text-[11px]">{profile?.email}</div>
           </div>
+          <NotificationBell />
           <button onClick={async () => { await signOut(); nav('/login'); }}
             className="text-[12.5px] rounded px-3 py-1.5" style={{ border: '1px solid var(--line)' }}>Sign out</button>
         </div>
