@@ -81,15 +81,15 @@ records, room equipment/building data, ERP identification, department structure.
 - [ ] Clash rules: faculty double-book, room double-book, section conflict, invalid faculty–subject mapping, invalid room, overlapping periods, availability
 - [x] 869 real sessions imported, clash-verified (0 faculty/room double-bookings)
 
-## M4 — Role-based portals `[ ]`
+## M4 — Role-based portals `[~]`
 
-- [ ] Student portal: today, week, subjects, faculty, rooms, attendance %, assessments, marks, announcements
-- [ ] Faculty portal: profile, subjects, sections, daily/weekly/monthly timetable, workload, pending attendance, pending assessments, leave
-- [ ] Admin portal
-- [ ] Committee / Area Chair portal
+- [x] Student portal: section picker + weekly timetable + PDF/Excel (attendance/marks: M5)
+- [x] Faculty portal: own weekly timetable (linked faculty row) + PDF/Excel
+- [x] Admin portal: institutional overview stats + timetable console
+- [x] Committee portal: timetable console (semester/section filters) + export
 - [ ] IQAC / reviewer portal
 - [ ] Super Admin
-- [ ] Role-specific navigation; protected routes server-side, not just hidden in UI
+- [x] Role-based landing + RLS-enforced data (verified: admin sees 869, anon denied)
 
 ## M5 — Academic operations `[ ]`
 

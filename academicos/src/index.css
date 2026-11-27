@@ -1,0 +1,6 @@
+@import "tailwindcss";
+:root { --bg:#f8f6f0; --panel:#ffffff; --ink:#1a2234; --muted:#5b6477; --brand:#1f3864; --line:#e6e2d6; --accent:#2f6f4f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0b1220; --panel:#121a2b; --ink:#e8ecf5; --muted:#9aa4ba; --brand:#7aa2d6; --line:#233049; --accent:#5fbf8f; } }
+:root[data-theme="dark"] { --bg:#0b1220; --panel:#121a2b; --ink:#e8ecf5; --muted:#9aa4ba; --brand:#7aa2d6; --line:#233049; --accent:#5fbf8f; }
+html, body, #root { height: 100%; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }

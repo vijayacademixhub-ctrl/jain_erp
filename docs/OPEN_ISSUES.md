@@ -57,3 +57,13 @@
   can be renamed later without data loss.
 - Deferred to the student step: student_enrolments (needs USN accounts). Faculty short codes
   are the identity key until logins are issued.
+
+## M4 frontend — started (session 4)
+- Built academicos/ (Vite 8 + React 18 + TS + react-router 7 + Tailwind 4.3 + Supabase JS).
+  Role-based portals: student, faculty, committee, admin. PDF + Excel export (SheetJS + jsPDF).
+- Added v_timetable_display view (security_invoker) + migration 0011 granting table privileges
+  to the authenticated role (RLS still gates rows; grants were missing from 0001-0009).
+- Test account (staging, not a real person): admin@academicos.cms.test / master_admin,
+  linked to the VIJAY faculty row. Verified end-to-end: login → 869 entries visible,
+  anon denied. Real logins arrive with the credentials document (role seed 0009).
+- TODO: lazy-load export libs (952KB chunk); M5 adds attendance/marks to the portals.
