@@ -1,0 +1,5 @@
+-- 0044 Builder suggestions + clash panel
+-- tt_builder_options now returns course credits (weekly-hours target) + room capacity.
+-- tt_suggest(version,day,period,section) -> free faculty (with load) + free rooms
+--   (with capacity + fits flag) for that slot, clash-free picks.
+-- tt_version_clashes(version) -> all faculty/room/section double-bookings (critical).

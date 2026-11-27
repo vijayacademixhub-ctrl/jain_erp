@@ -1,0 +1,1 @@
+-- 0045 Fix tt_suggest to limit rows before aggregating (top 12 suggestions).
