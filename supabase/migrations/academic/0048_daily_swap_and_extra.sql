@@ -1,0 +1,9 @@
+-- 0048 Daily Timetable: swap + extra class
+-- timetable_change_logs gains subject_id/period_id/section_id (for entry-less
+-- extra classes; entry_id already nullable).
+-- tt_daily_swap(entry_a, entry_b, date, reason) swaps faculty between two
+--   same-day classes (two swap rows), notifies both faculty + both sections.
+-- tt_daily_extra(date, period, subject, faculty, room, section, reason) adds a
+--   class not in the master; notifies the section's students + faculty.
+-- v_daily_changes rebuilt to LEFT JOIN the entry and coalesce subject/period/
+--   section from the entry OR the extra-class columns.
