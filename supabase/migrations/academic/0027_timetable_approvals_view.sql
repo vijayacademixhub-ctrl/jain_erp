@@ -1,0 +1,4 @@
+-- 0027 v_timetable_approvals (security_invoker) + demo draft version
+-- View joins timetable_versions -> semesters -> academic_years and resolves
+-- submitted_by / created_by / reviewed_by profile names for the approvals UI.
+-- Seeds one draft (6th Sem v2) so the submit/approve flow is exercisable.

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-const tabs = [{ to: '/admin', label: 'Overview' }, { to: '/admin/analytics', label: 'Analytics' }];
+const tabs = [{ to: '/admin', label: 'Overview' }, { to: '/admin/timetable-approvals', label: 'Timetable Approvals' }, { to: '/admin/analytics', label: 'Analytics' }];
 export function AdminNav() {
   const { pathname } = useLocation();
   return (

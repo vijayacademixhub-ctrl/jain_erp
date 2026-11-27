@@ -1,0 +1,9 @@
+-- 0028 Fix approval-gate notifications to use the live notify() helper
+-- Rewrites submit_timetable/approve_timetable notification sections to call
+-- public.notify(recipient, 'timetable', title, body, link), which writes to
+-- public.app_notifications (the table the header bell + my_notifications read),
+-- instead of the non-existent notifications(recipient_id,...) columns.
+--
+-- Named super-admin accounts (created via execute_sql, passwords derived in-DB,
+-- never logged): Sharda Kanwar, Krishna Koppa, Jayashree, Chaitra, Yamini A V,
+-- Karishma, Hephzibah A Lazar — each <local>@admin.cms-academicos.app, role super_admin.

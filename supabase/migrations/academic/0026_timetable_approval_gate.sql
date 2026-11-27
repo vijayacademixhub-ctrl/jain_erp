@@ -1,0 +1,9 @@
+-- 0026 Timetable approval gate (applied via MCP apply_migration)
+-- Extends timetable_versions.status to {draft, pending_approval, published, withdrawn, returned}
+-- Adds audit cols: submitted_by/at, reviewed_by/at, review_comments.
+-- RPCs:
+--   submit_timetable(version)            committee/admin/super → draft|returned -> pending_approval; notifies super admins
+--   approve_timetable(version, approve, comments)  super/master only; pending_approval -> published (supersedes prior
+--                                        published for the semester) or -> returned; notifies the submitter
+-- Helpers: has_role(text), current_profile_id().
+-- Notification wiring corrected in 0028 to use the live notify()/app_notifications path.

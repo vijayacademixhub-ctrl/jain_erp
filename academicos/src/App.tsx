@@ -15,8 +15,10 @@ import DailyChanges from './pages/committee/DailyChanges';
 import RecordVerification from './pages/committee/RecordVerification';
 import IQACReports from './pages/committee/IQACReports';
 import LeaveApprovals from './pages/committee/LeaveApprovals';
+import TimetablePublish from './pages/committee/TimetablePublish';
 import AdminHome from './pages/admin/AdminHome';
 import Analytics from './pages/admin/Analytics';
+import TimetableApprovals from './pages/admin/TimetableApprovals';
 
 function Splash({ text }: { text: string }) {
   return <div className="min-h-full flex items-center justify-center text-sm" style={{ color: 'var(--muted)' }}>{text}</div>;
@@ -49,11 +51,13 @@ export default function App() {
       <Route path="/faculty/records" element={<FacultyRecords />} />
       <Route path="/faculty/leave" element={<FacultyLeave />} />
       <Route path="/committee" element={<CommitteeHome />} />
+      <Route path="/committee/publish" element={<TimetablePublish />} />
       <Route path="/committee/daily" element={<DailyChanges />} />
       <Route path="/committee/verify" element={<RecordVerification />} />
       <Route path="/committee/reports" element={<IQACReports />} />
       <Route path="/committee/leave" element={<LeaveApprovals />} />
       <Route path="/admin" element={<AdminHome />} />
+      <Route path="/admin/timetable-approvals" element={<TimetableApprovals />} />
       <Route path="/admin/analytics" element={<Analytics />} />
       <Route path="/no-access" element={<Splash text="No role is assigned to this account yet. Contact the Academic Office." />} />
       <Route path="*" element={<Navigate to={landing} replace />} />

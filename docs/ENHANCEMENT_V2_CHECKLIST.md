@@ -4,7 +4,7 @@ Legend: ✅ have · 🟡 partial · ⬜ to build. Status as of session 4.
 
 ## 1. User roles
 - 🟡 Master Admin (Vijay) — role + hidden + audited impersonation exist; seed Vijay's real account
-- ⬜ Super Admins — seed named accounts: Sharda Kanwar, Krishna Gopa, Jayashree, Chaitra, Yamini, Karishma, Hepzibah, TTC members (super_admin role, "cannot delete / change master")
+- ✅ Super Admins — named accounts seeded (Sharda Kanwar, Krishna Koppa, Jayashree, Chaitra, Yamini A V, Karishma, Hephzibah A Lazar), each `<local>@admin.cms-academicos.app`, role super_admin
 - 🟡 TTC dashboard — timetable console + daily changes ✅; leave, room bookings, change requests, audit, notifications ⬜
 - 🟡 Faculty dashboard — timetable/workload/attendance/assessments/records ✅; Faculty Notes ⬜, Leave module ⬜, richer workload breakdown ⬜
 - 🟡 Student portal — auto section + timetable/attendance/marks ✅; upcoming events, colour-coded today, notifications feed, more downloads ⬜
@@ -16,8 +16,8 @@ Legend: ✅ have · 🟡 partial · ⬜ to build. Status as of session 4.
 - ✅ PDF + Excel downloads (timetable)
 
 ## 3. Timetable flow
-- ✅ Committee builds → publish → auto workload (recorded) → faculty/student see it → audit
-- ⬜ **Super Admin approval gate** between draft and publish (currently committee publishes directly)
+- ✅ Committee builds → **submit for approval** → Super-Admin approves → publish → auto workload (recorded) → faculty/student see it → audit
+- ✅ **Super Admin approval gate** between draft and publish — committee "Publish & Approval" page (submit / see returned comments); super-admin "Timetable Approvals" page (approve & publish / return with comments); approval supersedes the prior published version for that semester; both sides notified
 - ✅ System audit entry on changes
 
 ## 4. Timetable modules
