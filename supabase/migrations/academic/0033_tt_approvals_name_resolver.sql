@@ -1,0 +1,2 @@
+-- 0033 v_timetable_approvals rebuilt to resolve submitter/creator/reviewer names
+-- via public.profile_name() (same profiles-RLS fix as 0032).

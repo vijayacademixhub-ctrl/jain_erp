@@ -1,0 +1,4 @@
+-- 0032 profile_name(uuid) SECURITY DEFINER name resolver + v_room_bookings rebuilt
+-- to use it. profiles RLS only exposes a user's own row (admins included), so
+-- views that showed requester/decider names returned null; resolve via definer
+-- while keeping room_bookings row-level RLS intact (view stays security_invoker).

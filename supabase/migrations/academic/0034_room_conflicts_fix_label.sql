@@ -1,0 +1,3 @@
+-- 0034 Fix room_conflicts(): subjects has no code/name column; label the clashing
+-- class by subjects.short_form (+ faculty short_code). Also resolve booking
+-- requester name via profile_name().
