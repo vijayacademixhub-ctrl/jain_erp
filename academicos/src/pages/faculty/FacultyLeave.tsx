@@ -13,6 +13,8 @@ export default function FacultyLeave() {
   const [fid, setFid] = useState<string | null>(null);
   const [rows, setRows] = useState<Leave[]>([]);
   const [form, setForm] = useState({ leave_type: 'planned', from_date: '', to_date: '', reason: '' });
+  const [sheet, setSheet] = useState<File | null>(null);
+  const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
 
   useEffect(() => { if (session) supabase.from('faculty').select('id').eq('profile_id', session.user.id).maybeSingle().then(({ data }) => setFid((data as { id: string } | null)?.id ?? null)); }, [session]);
@@ -20,10 +22,24 @@ export default function FacultyLeave() {
   useEffect(() => { if (fid) load(); }, [fid]);
 
   async function apply() {
-    setMsg(null);
-    const { error } = await supabase.rpc('apply_leave', { p_type: form.leave_type, p_from: form.from_date, p_to: form.to_date || form.from_date, p_reason: form.reason, p_periods: [] });
-    if (error) setMsg(error.message);
-    else { setForm({ leave_type: 'planned', from_date: '', to_date: '', reason: '' }); setMsg('Leave request submitted for approval.'); load(); }
+    if (!session) return;
+    setMsg(null); setBusy(true);
+    let adjustmentPath: string | null = null;
+    if (sheet) {
+      const path = `${session.user.id}/leave-adjustments/${Date.now()}_${sheet.name}`;
+      const { error: upErr } = await supabase.storage.from('evidence').upload(path, sheet);
+      if (upErr) { setMsg('Could not upload adjustment sheet: ' + upErr.message); setBusy(false); return; }
+      adjustmentPath = path;
+    }
+    const { data: leaveId, error } = await supabase.rpc('apply_leave', {
+      p_type: form.leave_type, p_from: form.from_date, p_to: form.to_date || form.from_date,
+      p_reason: form.reason, p_periods: [], p_adjustment_path: adjustmentPath,
+    });
+    if (error) { setMsg(error.message); setBusy(false); return; }
+    // fire the email trigger (no-op until the Resend key is configured)
+    supabase.functions.invoke('send-leave-email', { body: { leave_id: leaveId, event: 'applied' } }).catch(() => {});
+    setForm({ leave_type: 'planned', from_date: '', to_date: '', reason: '' }); setSheet(null);
+    setMsg('Leave request submitted for approval.'); setBusy(false); load();
   }
   async function cancel(l: Leave) { await supabase.from('faculty_leaves').update({ status: 'cancelled' }).eq('id', l.id); load(); }
 
@@ -45,7 +61,17 @@ export default function FacultyLeave() {
                 <input type="date" value={form.to_date} onChange={(e) => setForm({ ...form, to_date: e.target.value })} className={inp} style={{ border: '1px solid var(--line)', background: 'var(--bg)' }} /></div>
             </div>
             <input value={form.reason} onChange={(e) => setForm({ ...form, reason: e.target.value })} placeholder="Reason" className={inp + ' w-full mb-2'} style={{ border: '1px solid var(--line)', background: 'var(--bg)' }} />
-            <button onClick={apply} className="rounded px-4 py-2 font-medium text-white text-[13px]" style={{ background: 'var(--brand)' }}>Submit request</button>
+            {form.leave_type === 'planned' && (
+              <div className="mb-2">
+                <label className="text-[12.5px] rounded px-3 py-1.5 cursor-pointer inline-block" style={{ border: '1px solid var(--line)' }}>
+                  {sheet ? `📎 ${sheet.name}` : 'Attach adjustment sheet (image/PDF)'}
+                  <input type="file" accept="image/*,application/pdf" className="hidden" onChange={(e) => setSheet(e.target.files?.[0] ?? null)} />
+                </label>
+                {sheet && <button onClick={() => setSheet(null)} className="text-[12px] ml-2" style={{ color: '#b4473f' }}>remove</button>}
+                <p className="text-[11px] mt-1" style={{ color: 'var(--muted)' }}>The scanned adjustment sheet is stored securely and attached to the approval email.</p>
+              </div>
+            )}
+            <button onClick={apply} disabled={busy} className="rounded px-4 py-2 font-medium text-white text-[13px] disabled:opacity-60" style={{ background: 'var(--brand)' }}>{busy ? 'Submitting…' : 'Submit request'}</button>
             {msg && <p className="text-[12px] mt-2" style={{ color: msg.includes('submitted') ? 'var(--accent)' : '#b4473f' }}>{msg}</p>}
           </div>
           <div className="grid gap-2">

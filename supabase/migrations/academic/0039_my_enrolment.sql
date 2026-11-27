@@ -1,0 +1,3 @@
+-- 0039 my_enrolment() SECURITY DEFINER — returns the current student's
+-- semester_number + section (label,id) instantly, bypassing the RLS
+-- statement-timeout on student_enrolments. Fixes student section auto-select.

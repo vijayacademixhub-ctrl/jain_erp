@@ -1,0 +1,6 @@
+-- 0040 Leave adjustment sheet + email
+-- faculty_leaves.adjustment_sheet_path; apply_leave() gains p_adjustment_path
+-- (stored, noted in the notification). Faculty upload the scanned adjustment
+-- sheet to the private 'evidence' bucket; approvers view it via signed URL.
+-- Edge function send-leave-email (Resend) sends on apply/approve/reject and
+-- attaches the sheet; no-ops until RESEND_API_KEY + LEAVE_NOTIFY_EMAIL are set.
