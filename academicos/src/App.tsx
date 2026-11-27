@@ -18,6 +18,7 @@ import RecordVerification from './pages/committee/RecordVerification';
 import IQACReports from './pages/committee/IQACReports';
 import LeaveApprovals from './pages/committee/LeaveApprovals';
 import TimetablePublish from './pages/committee/TimetablePublish';
+import MasterBuilder from './pages/committee/MasterBuilder';
 import AdminHome from './pages/admin/AdminHome';
 import Analytics from './pages/admin/Analytics';
 import TimetableApprovals from './pages/admin/TimetableApprovals';
@@ -62,6 +63,7 @@ export default function App() {
       <Route path="/faculty/rooms" element={<FacultyRooms />} />
       <Route path="/faculty/workload" element={<FacultyWorkload />} />
       <Route path="/committee" element={<CommitteeHome />} />
+      <Route path="/committee/builder" element={<MasterBuilder />} />
       <Route path="/committee/publish" element={<TimetablePublish />} />
       <Route path="/committee/daily" element={<DailyChanges />} />
       <Route path="/committee/verify" element={<RecordVerification />} />

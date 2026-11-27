@@ -1,0 +1,2 @@
+-- 0042 sections.shift_id is null, so derive the builder period set from the
+-- semester's published timetable (fallback: the busiest shift's periods).

@@ -1,0 +1,2 @@
+-- 0043 tt_create_draft(semester,name) starts a new draft version;
+-- tt_semesters() lists semesters for the new-draft picker.

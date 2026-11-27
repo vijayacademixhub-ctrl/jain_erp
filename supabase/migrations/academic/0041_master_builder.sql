@@ -1,0 +1,6 @@
+-- 0041 Master Timetable Builder backend (applied via MCP)
+-- tt_builder_options(section) -> subjects/faculty/rooms/periods for the add form
+-- tt_grid(version, section) -> draft grid entries
+-- tt_clash(version,day,period,faculty,room,section) -> faculty/room/section clashes
+-- tt_add_entry(...) clash-checked insert into a draft version; tt_delete_entry(entry)
+-- committee/admin only; version must be draft or returned.
