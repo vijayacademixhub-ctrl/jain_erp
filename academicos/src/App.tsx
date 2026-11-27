@@ -7,8 +7,10 @@ import StudentMarks from './pages/student/StudentMarks';
 import FacultyHome from './pages/faculty/FacultyHome';
 import FacultyAttendance from './pages/faculty/FacultyAttendance';
 import FacultyAssessments from './pages/faculty/FacultyAssessments';
+import FacultyRecords from './pages/faculty/FacultyRecords';
 import CommitteeHome from './pages/committee/CommitteeHome';
 import DailyChanges from './pages/committee/DailyChanges';
+import RecordVerification from './pages/committee/RecordVerification';
 import AdminHome from './pages/admin/AdminHome';
 
 function Splash({ text }: { text: string }) {
@@ -38,8 +40,10 @@ export default function App() {
       <Route path="/faculty" element={<FacultyHome />} />
       <Route path="/faculty/attendance" element={<FacultyAttendance />} />
       <Route path="/faculty/assessments" element={<FacultyAssessments />} />
+      <Route path="/faculty/records" element={<FacultyRecords />} />
       <Route path="/committee" element={<CommitteeHome />} />
       <Route path="/committee/daily" element={<DailyChanges />} />
+      <Route path="/committee/verify" element={<RecordVerification />} />
       <Route path="/admin" element={<AdminHome />} />
       <Route path="/no-access" element={<Splash text="No role is assigned to this account yet. Contact the Academic Office." />} />
       <Route path="*" element={<Navigate to={landing} replace />} />

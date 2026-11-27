@@ -1,0 +1,3 @@
+-- Applied: private 'evidence' storage bucket + policies (owner upload, reviewers/admin read),
+-- verify_record(record,decision,comments) RPC (committee/iqac/admin; writes verification
+-- history + updates status, audited), v_record_review reviewer queue view.
