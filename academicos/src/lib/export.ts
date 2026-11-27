@@ -1,7 +1,9 @@
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
-import autoTable from 'jspdf-autotable';
+import 'jspdf-autotable'; // side-effect: registers doc.autoTable (bundler-interop-safe)
 import type { TimetableRow } from './types';
+
+type AutoTableDoc = jsPDF & { autoTable: (opts: Record<string, unknown>) => void };
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -34,10 +36,10 @@ export function exportExcel(rows: TimetableRow[], name: string) {
 
 /** Clean, phone-readable PDF — no column misalignment (fixed autotable grid). */
 export function exportPDF(rows: TimetableRow[], title: string, subtitle: string) {
-  const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' });
+  const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' }) as AutoTableDoc;
   doc.setFontSize(14); doc.text(title, 40, 36);
   doc.setFontSize(9); doc.setTextColor(110); doc.text(subtitle, 40, 52);
-  autoTable(doc, {
+  doc.autoTable({
     startY: 66,
     head: [['Day', 'P', 'Time', 'Subject', 'Faculty', 'Room', 'Sections']],
     body: rowsToMatrix(rows).slice(1).map((r) => [r[0], r[1], r[2], r[3], r[4], r[5], r[6]] as string[]),

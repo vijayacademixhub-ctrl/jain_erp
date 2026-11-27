@@ -19,6 +19,7 @@ import TimetablePublish from './pages/committee/TimetablePublish';
 import AdminHome from './pages/admin/AdminHome';
 import Analytics from './pages/admin/Analytics';
 import TimetableApprovals from './pages/admin/TimetableApprovals';
+import AuditTrail from './pages/admin/AuditTrail';
 
 function Splash({ text }: { text: string }) {
   return <div className="min-h-full flex items-center justify-center text-sm" style={{ color: 'var(--muted)' }}>{text}</div>;
@@ -58,6 +59,8 @@ export default function App() {
       <Route path="/committee/leave" element={<LeaveApprovals />} />
       <Route path="/admin" element={<AdminHome />} />
       <Route path="/admin/timetable-approvals" element={<TimetableApprovals />} />
+      <Route path="/admin/leave" element={<LeaveApprovals area="admin" />} />
+      <Route path="/admin/audit" element={<AuditTrail />} />
       <Route path="/admin/analytics" element={<Analytics />} />
       <Route path="/no-access" element={<Splash text="No role is assigned to this account yet. Contact the Academic Office." />} />
       <Route path="*" element={<Navigate to={landing} replace />} />

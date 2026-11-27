@@ -1,6 +1,11 @@
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
-import autoTable from 'jspdf-autotable';
+import 'jspdf-autotable'; // side-effect: registers doc.autoTable (bundler-interop-safe)
+
+type AutoTableDoc = jsPDF & {
+  autoTable: (opts: Record<string, unknown>) => void;
+  lastAutoTable: { finalY: number };
+};
 
 export function exportReportExcel(name: string, headers: string[], rows: (string | number)[][]) {
   const ws = XLSX.utils.aoa_to_sheet([headers, ...rows]);
@@ -11,17 +16,17 @@ export function exportReportExcel(name: string, headers: string[], rows: (string
 }
 
 export function exportReportPDF(title: string, subtitle: string, headers: string[], rows: (string | number)[][], note?: string) {
-  const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' });
+  const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' }) as AutoTableDoc;
   doc.setFontSize(14); doc.text(title, 40, 36);
   doc.setFontSize(9); doc.setTextColor(110); doc.text(subtitle, 40, 52);
-  autoTable(doc, {
+  doc.autoTable({
     startY: 66, head: [headers], body: rows.map((r) => r.map((c) => String(c))),
     styles: { fontSize: 8, cellPadding: 3, overflow: 'linebreak' },
     headStyles: { fillColor: [31, 56, 100], halign: 'left' },
     alternateRowStyles: { fillColor: [247, 246, 240] },
   });
   if (note) {
-    const y = (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY + 16;
+    const y = doc.lastAutoTable.finalY + 16;
     doc.setFontSize(7.5); doc.setTextColor(120); doc.text(note, 40, y, { maxWidth: 760 });
   }
   doc.save(`${title.replace(/\s+/g, '_')}.pdf`);

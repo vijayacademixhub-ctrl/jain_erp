@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Layout } from '../../components/Layout';
 import { CommitteeNav } from '../../components/CommitteeNav';
+import { AdminNav } from '../../components/AdminNav';
 import { supabase } from '../../lib/supabase';
 
 interface Leave { id: string; leave_type: string; from_date: string; to_date: string; reason: string; status: string;
   faculty?: { full_name: string; short_code: string } | { full_name: string; short_code: string }[] }
 
-export default function LeaveApprovals() {
+export default function LeaveApprovals({ area = 'committee' }: { area?: 'committee' | 'admin' }) {
   const [rows, setRows] = useState<Leave[]>([]);
   const [filter, setFilter] = useState<'pending' | 'approved' | 'rejected'>('pending');
   const [comment, setComment] = useState<Record<string, string>>({});
@@ -27,7 +28,7 @@ export default function LeaveApprovals() {
 
   return (
     <Layout title="Leave Approvals">
-      <CommitteeNav />
+      {area === 'admin' ? <AdminNav /> : <CommitteeNav />}
       <div className="flex gap-1 mb-3">{tab('pending')}{tab('approved')}{tab('rejected')}</div>
       <div className="grid gap-2">
         {rows.map((l) => {
