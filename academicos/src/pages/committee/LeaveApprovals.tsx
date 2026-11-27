@@ -4,7 +4,7 @@ import { CommitteeNav } from '../../components/CommitteeNav';
 import { supabase } from '../../lib/supabase';
 
 interface Leave { id: string; leave_type: string; from_date: string; to_date: string; reason: string; status: string;
-  faculty?: { full_name: string; short_code: string }[] }
+  faculty?: { full_name: string; short_code: string } | { full_name: string; short_code: string }[] }
 
 export default function LeaveApprovals() {
   const [rows, setRows] = useState<Leave[]>([]);
@@ -31,7 +31,7 @@ export default function LeaveApprovals() {
       <div className="flex gap-1 mb-3">{tab('pending')}{tab('approved')}{tab('rejected')}</div>
       <div className="grid gap-2">
         {rows.map((l) => {
-          const f = l.faculty?.[0];
+          const f = Array.isArray(l.faculty) ? l.faculty[0] : l.faculty;
           return (
             <div key={l.id} className="rounded-xl p-3" style={{ background: 'var(--panel)', border: '1px solid var(--line)' }}>
               <div className="text-[13px] font-medium">{f?.full_name} <span style={{ color: 'var(--muted)' }}>({f?.short_code})</span></div>
