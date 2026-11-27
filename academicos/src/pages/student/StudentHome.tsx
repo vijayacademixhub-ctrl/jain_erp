@@ -25,18 +25,12 @@ export default function StudentHome() {
 
   useEffect(() => {
     if (!session) return;
-    supabase.from('student_enrolments')
-      .select('semesters!inner(semester_number),sections!inner(label)')
-      .limit(1)
-      .then(({ data }) => {
-        type Emb<T> = T | T[] | undefined;
-        const one = <T,>(e: Emb<T>): T | undefined => (Array.isArray(e) ? e[0] : e);
-        const row = (data ?? [])[0] as { semesters?: Emb<{ semester_number: number }>; sections?: Emb<{ label: string }> } | undefined;
-        const sm = one(row?.semesters)?.semester_number;
-        const lb = one(row?.sections)?.label;
-        if (sm) setSem(sm);
-        if (lb) setSection(lb);
-      });
+    // SECURITY DEFINER RPC — avoids the RLS statement-timeout on student_enrolments
+    supabase.rpc('my_enrolment').then(({ data }) => {
+      const r = (data ?? [])[0] as { semester_number: number; section_label: string } | undefined;
+      if (r?.semester_number) setSem(r.semester_number);
+      if (r?.section_label) setSection(r.section_label);
+    });
   }, [session]);
 
   const { rows } = useTimetable({ semester: sem, section: section || undefined });
