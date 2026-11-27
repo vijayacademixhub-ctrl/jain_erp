@@ -3,6 +3,7 @@ import { useAuth, primaryRole } from './lib/auth';
 import Login from './pages/Login';
 import StudentHome from './pages/student/StudentHome';
 import FacultyHome from './pages/faculty/FacultyHome';
+import FacultyAttendance from './pages/faculty/FacultyAttendance';
 import CommitteeHome from './pages/committee/CommitteeHome';
 import AdminHome from './pages/admin/AdminHome';
 
@@ -29,6 +30,7 @@ export default function App() {
       <Route path="/" element={<Navigate to={landing} replace />} />
       <Route path="/student" element={<StudentHome />} />
       <Route path="/faculty" element={<FacultyHome />} />
+      <Route path="/faculty/attendance" element={<FacultyAttendance />} />
       <Route path="/committee" element={<CommitteeHome />} />
       <Route path="/admin" element={<AdminHome />} />
       <Route path="/no-access" element={<Splash text="No role is assigned to this account yet. Contact the Academic Office." />} />

@@ -1,0 +1,2 @@
+-- Applied: grant select/insert/update/delete on all academic tables to the authenticated
+-- role (RLS still gates rows). Base-table GRANTs were missing from 0001-0009.

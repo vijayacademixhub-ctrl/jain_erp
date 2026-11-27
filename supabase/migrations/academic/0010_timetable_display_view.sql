@@ -1,0 +1,2 @@
+-- Applied: flattened timetable view (security_invoker) for the frontend. See 0010 in DB.
+-- (definition mirrors public.v_timetable_display)

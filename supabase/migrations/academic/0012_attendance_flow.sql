@@ -1,0 +1,3 @@
+-- Applied: v_entry_roster, mark_attendance(p_entry,p_date,p_records) RPC (enforces
+-- faculty_can_mark / substitute rule, records subject_faculty + taken_by, audited),
+-- and v_student_attendance summary view. See DB for full definitions.

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Layout } from '../../components/Layout';
+import { FacultyNav } from '../../components/FacultyNav';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../lib/auth';
 import { useTimetable } from '../../lib/useTimetable';
@@ -20,6 +21,7 @@ export default function FacultyHome() {
   const { rows } = useTimetable({ facultyCode: code ?? '__none__' });
   return (
     <Layout title="My Timetable">
+      <FacultyNav />
       {!resolved ? <p className="text-sm" style={{ color: 'var(--muted)' }}>Loading…</p>
         : !code ? <p className="text-sm" style={{ color: 'var(--muted)' }}>No faculty profile is linked to this account yet.</p>
         : <div className="rounded-xl p-4" style={{ background: 'var(--panel)', border: '1px solid var(--line)' }}>
