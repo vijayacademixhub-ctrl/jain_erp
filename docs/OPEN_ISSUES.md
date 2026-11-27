@@ -93,3 +93,10 @@
   Verified end-to-end: submit -> verify_record -> status 'approved' + append-only history.
 - Feeds NAAC/IQAC reporting (next): structured exports of verified records (no compliance
   claims without an approved criteria mapping, per spec).
+
+## M6 IQAC/NAAC reporting — done (session 4 cont.)
+- IQAC Reports page: verified faculty contributions by year/category, contribution counts,
+  traceable record table, PDF + Excel export. Exports carry an explicit note that NAAC
+  criteria are not auto-assigned (map per the institution's approved framework), per spec.
+- Note: verification history is FK-protected (a verified record can't be hard-deleted),
+  which is correct append-only behaviour.

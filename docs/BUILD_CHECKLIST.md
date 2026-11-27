@@ -106,7 +106,7 @@ records, room equipment/building data, ERP identification, department structure.
 
 - [ ] Analytics: student, faculty, timetable, academic office (with freshness + period labels)
 - [x] Committee/IQAC verification workflow (approve/reject/return + comments + append-only history)
-- [ ] NAAC/IQAC exports traceable to verified source records — **no compliance claims without approved mapping**
+- [x] NAAC/IQAC exports (PDF+Excel) traceable to verified records; no auto criteria mapping (explicit note)
 - [ ] Academic Office operations — **much of this already exists in `academicos` (see Q1)**
 - [ ] AI assistant over authorised data only, permission-aware retrieval
 - [ ] AI may never modify records, publish marks, approve, or change timetables unaided
