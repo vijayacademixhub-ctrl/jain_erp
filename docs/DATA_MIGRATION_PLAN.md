@@ -34,3 +34,23 @@ Recorded in `public.import_jobs`.
 ## M3 (next milestone, not M2)
 - Timetable entries from the master TT "Session List" (869 sessions) → timetable_versions/
   entries/entry_sections, with combined-section handling and time→period mapping.
+
+## M3 · Master timetable — IMPORTED (verified)
+Source: BBA_Master_Timetable_Even_Sem_2027.xlsx · "Session List" (869 sessions).
+
+| Entity | Rows |
+| --- | --- |
+| timetable_versions (published) | 3 (one per semester 2/4/6) |
+| timetable_entries | 869 |
+| timetable_entry_sections | 1,339 (combined classes supported) |
+| new courses created | 2 (MILES Major 1 & 2 — elective baskets) |
+| new rooms created | 1 (Auditorium) |
+
+Resolution: period 100%, sections 100% (1,339 links), subjects 100%, faculty 821/869.
+The 48 faculty-less entries are MILES elective sessions (Faculty='MILES' placeholder) —
+imported with faculty_id NULL; real teachers (externals) attach post-approval. Every entry
+carries source_ref (Session List row id) for traceability.
+
+Validation (clash engine, actual time windows incl. cross-shift overlap):
+**0 faculty double-bookings, 0 room double-bookings** — the master timetable is clash-free.
+Recorded in import_jobs.

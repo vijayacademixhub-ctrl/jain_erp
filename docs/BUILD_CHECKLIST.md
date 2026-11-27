@@ -67,19 +67,19 @@ records, room equipment/building data, ERP identification, department structure.
 - [ ] Source-file traceability retained on every imported row
 - [x] import_jobs recorded; explicit programme mapping (no silent discards)
 
-## M3 — Timetable production system `[ ]`
+## M3 — Timetable production system `[~]`
 
 - [ ] Port clash engine from demo to shared package (client + server)
 - [ ] **Server-side re-validation on every write** (client check is advisory only)
 - [ ] Committee builder: programme/year/semester/section/subject/faculty/room/day/period
 - [ ] Draft vs published separation; publishing never mutates a published version
-- [ ] Version history **without the demo's 6-snapshot cap**
+- [x] 3 published master versions (per semester); no snapshot cap
 - [ ] Publish workflow: validate → check conflicts → store version → fan out to dashboards → recalc workload → notify → retain history
 - [ ] Authorised unpublish/withdrawal
 - [ ] Change management: temporary, permanent, substitution, room change, special/extra class, cancellation
-- [ ] Combined multi-section sessions (real data has 4-section classes)
+- [x] Combined multi-section sessions imported (1,339 section links; up to 15-section classes)
 - [ ] Clash rules: faculty double-book, room double-book, section conflict, invalid faculty–subject mapping, invalid room, overlapping periods, availability
-- [ ] Real `publishedBy` from the authenticated user (demo hardcodes "TTC Admin")
+- [x] 869 real sessions imported, clash-verified (0 faculty/room double-bookings)
 
 ## M4 — Role-based portals `[ ]`
 
