@@ -1,0 +1,8 @@
+-- 0030 Room Booking module (applied via MCP)
+-- Table room_bookings (RLS: own + admins + committee read; own insert).
+-- room_conflicts(room,date,start,end,exclude) -> clashes vs published timetable
+--   classes (period_timings) AND approved bookings.
+-- request_room_booking(...) blocks on a real clash, notifies admins, audits.
+-- decide_room_booking(booking, approve, comments) re-checks on approve, notifies.
+-- cancel_room_booking(booking) for requester/admin.
+-- v_room_bookings view with room + requester + decider names.

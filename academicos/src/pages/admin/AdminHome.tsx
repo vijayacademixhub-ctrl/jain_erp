@@ -17,7 +17,7 @@ interface Overview {
 }
 interface Alerts {
   pending_leaves: number; pending_tt_approvals: number; pending_verifications: number;
-  on_leave_today: number; changes_today: number; audit_today: number;
+  pending_bookings: number; on_leave_today: number; changes_today: number; audit_today: number;
 }
 
 function Kpi({ label, value, accent }: { label: string; value: number | string; accent: string }) {
@@ -62,11 +62,12 @@ export default function AdminHome() {
 
       {/* Alerts panel */}
       <h2 className="text-[12px] uppercase tracking-wide font-semibold mb-2" style={{ color: 'var(--muted)' }}>Needs attention</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-6">
         <AlertChip to="/admin/timetable-approvals" n={a?.pending_tt_approvals ?? 0} label="Timetable approvals" tone="#7a4fb0" />
         <AlertChip to="/admin/leave" n={a?.pending_leaves ?? 0} label="Leave requests" tone="#b4473f" />
+        <AlertChip to="/admin/rooms" n={a?.pending_bookings ?? 0} label="Room bookings" tone="#2d7d9a" />
         <AlertChip to="/committee/verify" n={a?.pending_verifications ?? 0} label="Record verifications" tone="#c08a2d" />
-        <AlertChip to="/admin/leave" n={a?.on_leave_today ?? 0} label="On leave today" tone="#2d7d9a" />
+        <AlertChip to="/admin/leave" n={a?.on_leave_today ?? 0} label="On leave today" tone="#4a7a3a" />
         <AlertChip to="/committee/daily" n={a?.changes_today ?? 0} label="Changes today" tone="#3d8168" />
         <AlertChip to="/admin/audit" n={a?.audit_today ?? 0} label="Audit events today" tone="#1f3864" />
       </div>

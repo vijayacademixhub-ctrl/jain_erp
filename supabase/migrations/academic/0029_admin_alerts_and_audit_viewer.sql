@@ -1,0 +1,5 @@
+-- 0029 Super-Admin dashboard data (applied via MCP)
+-- admin_alerts()  -> jsonb counts for the needs-attention panel
+-- recent_audit(limit, action, entity, search) -> actor-named rows from the
+--   append-only audit_logs (admin only; audit_logs itself stays RLS-locked)
+-- audit_filters() -> distinct actions + entity types for the viewer dropdowns

@@ -34,21 +34,21 @@ Legend: ✅ have · 🟡 partial · ⬜ to build. Status as of session 4.
 - ✅ Faculty apply (planned/unplanned, rules) → super admin/admin approve/reject → faculty notified + committee asked to arrange substitutes
 - ✅ Leave status + history (faculty page); 🟡 PDF download of leave record (later)
 
-## 7. Room booking module  ⬜ (rooms imported; booking not built)
-- ⬜ Availability check, approval workflow, conflict detection, booking calendar (Seminar Halls, Studio, Board Room, Labs)
+## 7. Room booking module  ✅ (live)
+- ✅ Faculty request page with live **availability check**; **conflict detection** against published timetable classes (period_timings) and approved bookings; **approval workflow** (admin approve/reject with re-check); booking **calendar** (upcoming approved, grouped by day) on the admin page; cancel; notifications + audit on every step. Bookable rooms only.
 
 ## 8. Notification engine  ✅ (in-app bell live)
 - ✅ Header bell (unread badge, dropdown, mark-read, deep links) for all roles; student Notifications page
 - ✅ Triggers live: substitute assigned, class change/cancel/room; record verified. (leave/publish added with those modules)
 - (email / mobile push: later)
 
-## 9. Super Admin visual dashboard  🟡
+## 9. Super Admin visual dashboard  ✅
 - ✅ Analytics (KPIs, breakdowns, PDF/Excel)
-- ⬜ Highly-visual cards + pie/bar/trend charts + alerts panel (pending leave, approval pending, room conflicts, faculty shortage)
+- ✅ "Institutional Command Centre": colour-accented KPI cards, clickable **alerts panel** (timetable approvals, leave, room bookings, record verifications, on-leave-today, changes, audit), **charts** (students-by-programme bars, verification donut, busiest-faculty bars) via admin_alerts + analytics_overview
 
-## 10. Audit trail  🟡
+## 10. Audit trail  ✅
 - ✅ Append-only audit_logs backend (tamper-proof)
-- ⬜ Audit Trail viewer UI (timetable changes, leave decisions, bookings, logins, actions)
+- ✅ Audit Trail viewer UI (/admin/audit): filter by action/entity, search, colour-coded action tags, PDF/Excel export (recent_audit + audit_filters RPCs, admin-only)
 
 ## 11. Year-end backup  ⬜
 - ⬜ Backup Center: Excel + PDF export of timetable/faculty/leave/room/management/academic/workload
