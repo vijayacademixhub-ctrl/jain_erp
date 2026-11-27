@@ -26,9 +26,9 @@ Legend: ✅ have · 🟡 partial · ⬜ to build. Status as of session 4.
 - 🟡 Semester-wise dedicated generation — data present; per-sem builder ⬜
 - ⬜ Faculty View and Room View of the grid (data exists)
 
-## 5. Faculty workload engine
+## 5. Faculty workload engine  ✅
 - ✅ Scheduled weekly load per faculty; recorded hours from attendance
-- ⬜ Breakdown: theory / lab / mentoring / invigilation / extra duties; daily/weekly/monthly/semester; pie/bar/trend charts
+- ✅ Breakdown via faculty_workload() RPC + WorkloadPanel: periods & teaching hrs/week, planned hrs, by **course category** (pie), by **day** (bar), by **subject** (bar + PDF/Excel), mentoring sections, substitutions covered/delegated, **monthly conducted-sessions trend**. Faculty self-view (/faculty/workload); Super-Admin walk-in for any faculty (/admin/workload). (theory/lab split not in source data — categorised by course_type instead; invigilation not yet tracked.)
 
 ## 6. Leave approval workflow  ✅ (live)
 - ✅ Faculty apply (planned/unplanned, rules) → super admin/admin approve/reject → faculty notified + committee asked to arrange substitutes

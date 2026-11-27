@@ -11,6 +11,7 @@ import FacultyAssessments from './pages/faculty/FacultyAssessments';
 import FacultyRecords from './pages/faculty/FacultyRecords';
 import FacultyLeave from './pages/faculty/FacultyLeave';
 import FacultyRooms from './pages/faculty/FacultyRooms';
+import FacultyWorkload from './pages/faculty/FacultyWorkload';
 import CommitteeHome from './pages/committee/CommitteeHome';
 import DailyChanges from './pages/committee/DailyChanges';
 import RecordVerification from './pages/committee/RecordVerification';
@@ -22,6 +23,7 @@ import Analytics from './pages/admin/Analytics';
 import TimetableApprovals from './pages/admin/TimetableApprovals';
 import AuditTrail from './pages/admin/AuditTrail';
 import AdminRooms from './pages/admin/AdminRooms';
+import AdminWorkload from './pages/admin/AdminWorkload';
 
 function Splash({ text }: { text: string }) {
   return <div className="min-h-full flex items-center justify-center text-sm" style={{ color: 'var(--muted)' }}>{text}</div>;
@@ -54,6 +56,7 @@ export default function App() {
       <Route path="/faculty/records" element={<FacultyRecords />} />
       <Route path="/faculty/leave" element={<FacultyLeave />} />
       <Route path="/faculty/rooms" element={<FacultyRooms />} />
+      <Route path="/faculty/workload" element={<FacultyWorkload />} />
       <Route path="/committee" element={<CommitteeHome />} />
       <Route path="/committee/publish" element={<TimetablePublish />} />
       <Route path="/committee/daily" element={<DailyChanges />} />
@@ -64,6 +67,7 @@ export default function App() {
       <Route path="/admin/timetable-approvals" element={<TimetableApprovals />} />
       <Route path="/admin/leave" element={<LeaveApprovals area="admin" />} />
       <Route path="/admin/rooms" element={<AdminRooms />} />
+      <Route path="/admin/workload" element={<AdminWorkload />} />
       <Route path="/admin/audit" element={<AuditTrail />} />
       <Route path="/admin/analytics" element={<Analytics />} />
       <Route path="/no-access" element={<Splash text="No role is assigned to this account yet. Contact the Academic Office." />} />

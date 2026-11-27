@@ -1,0 +1,3 @@
+-- 0036 Harden faculty_workload auth: explicit branch (self / admin / deny) so a
+-- null current_faculty_id() can't NULL-out the <> check and leak another
+-- faculty's workload. Faculty see only their own; admins may inspect anyone.

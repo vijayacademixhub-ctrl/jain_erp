@@ -1,0 +1,6 @@
+-- 0035 faculty_workload(p_faculty) -> jsonb (applied via MCP)
+-- Full workload breakdown: scheduled periods/hours per week (timetable_entries
+-- x period_timings), planned hours (faculty_allocations), load by course
+-- category and by day, by subject, mentoring sections (class teacher),
+-- conducted sessions + monthly trend (attendance_sessions.taken_by_faculty_id),
+-- substitutions covered / classes delegated (timetable_change_logs).
