@@ -30,9 +30,9 @@ Legend: ✅ have · 🟡 partial · ⬜ to build. Status as of session 4.
 - ✅ Scheduled weekly load per faculty; recorded hours from attendance
 - ⬜ Breakdown: theory / lab / mentoring / invigilation / extra duties; daily/weekly/monthly/semester; pie/bar/trend charts
 
-## 6. Leave approval workflow  ⬜ (not built)
-- ⬜ Faculty apply leave → super admin/HOD approve/reject → TTC notified → timetable update → students notified → workload updated
-- ⬜ Leave status, history, download
+## 6. Leave approval workflow  ✅ (live)
+- ✅ Faculty apply (planned/unplanned, rules) → super admin/admin approve/reject → faculty notified + committee asked to arrange substitutes
+- ✅ Leave status + history (faculty page); 🟡 PDF download of leave record (later)
 
 ## 7. Room booking module  ⬜ (rooms imported; booking not built)
 - ⬜ Availability check, approval workflow, conflict detection, booking calendar (Seminar Halls, Studio, Board Room, Labs)
@@ -66,7 +66,7 @@ Reports · Audit Trail · Backup Center · Administration(Master/Super/Users/Per
 
 ## Build order (one by one)
 1. ✅ Notifications engine (bell) — DONE
-2. Leave management workflow  ← next
+2. ✅ Leave management — DONE
 3. Super-admin accounts (named) + approval gate in publish
 4. Room booking
 5. Audit Trail viewer
