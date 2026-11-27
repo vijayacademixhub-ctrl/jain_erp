@@ -1,0 +1,7 @@
+-- 0038 Admin drill-down RPCs + all-faculty workload (applied via MCP)
+-- admin_students / admin_faculty / admin_sections / admin_subjects (admin-only
+-- SECURITY DEFINER list sources behind the clickable dashboard KPIs) and
+-- all_faculty_workload() (every faculty's periods/hrs/subjects/mentoring/
+-- conducted in one view). 0038b casts profiles.status (enum) to text.
+-- Also (0039-style, same session): all super_admins granted the committee role
+-- (TTC access) and Vijay master-admin login created.

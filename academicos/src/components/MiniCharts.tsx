@@ -1,22 +1,28 @@
 // Dependency-free, theme-aware mini charts (inline SVG + CSS).
+import { Link } from 'react-router-dom';
 
 export const CHART_COLORS = ['#1f3864', '#3d8168', '#c08a2d', '#7a4fb0', '#b4473f', '#2d7d9a', '#8a6d3b', '#4a7a3a'];
 
-export function BarList({ data, unit = '' }: { data: { label: string; value: number; sub?: string }[]; unit?: string }) {
+export function BarList({ data, unit = '' }: { data: { label: string; value: number; sub?: string; href?: string }[]; unit?: string }) {
   const max = Math.max(1, ...data.map((d) => d.value));
   return (
     <div className="grid gap-2">
-      {data.map((d, i) => (
-        <div key={d.label + i}>
-          <div className="flex items-baseline justify-between text-[12px] mb-0.5">
-            <span className="truncate pr-2" style={{ color: 'var(--ink)' }}>{d.label}{d.sub ? <span style={{ color: 'var(--muted)' }}> · {d.sub}</span> : null}</span>
-            <span className="font-medium tabular-nums" style={{ color: 'var(--muted)' }}>{d.value}{unit}</span>
-          </div>
-          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'var(--bg)' }}>
-            <div className="h-full rounded-full" style={{ width: `${(d.value / max) * 100}%`, background: CHART_COLORS[i % CHART_COLORS.length] }} />
-          </div>
-        </div>
-      ))}
+      {data.map((d, i) => {
+        const body = (
+          <>
+            <div className="flex items-baseline justify-between text-[12px] mb-0.5">
+              <span className="truncate pr-2" style={{ color: d.href ? 'var(--brand)' : 'var(--ink)' }}>{d.label}{d.sub ? <span style={{ color: 'var(--muted)' }}> · {d.sub}</span> : null}</span>
+              <span className="font-medium tabular-nums" style={{ color: 'var(--muted)' }}>{d.value}{unit}</span>
+            </div>
+            <div className="h-2 rounded-full overflow-hidden" style={{ background: 'var(--bg)' }}>
+              <div className="h-full rounded-full" style={{ width: `${(d.value / max) * 100}%`, background: CHART_COLORS[i % CHART_COLORS.length] }} />
+            </div>
+          </>
+        );
+        return d.href
+          ? <Link key={d.label + i} to={d.href} className="block rounded hover:opacity-80 transition-opacity">{body}</Link>
+          : <div key={d.label + i}>{body}</div>;
+      })}
       {data.length === 0 && <p className="text-[12.5px]" style={{ color: 'var(--muted)' }}>No data.</p>}
     </div>
   );

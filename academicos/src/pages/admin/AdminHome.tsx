@@ -20,16 +20,17 @@ interface Alerts {
   pending_bookings: number; on_leave_today: number; changes_today: number; audit_today: number;
 }
 
-function Kpi({ label, value, accent }: { label: string; value: number | string; accent: string }) {
-  return (
-    <div className="rounded-xl overflow-hidden flex" style={{ background: 'var(--panel)', border: '1px solid var(--line)' }}>
+function Kpi({ label, value, accent, to }: { label: string; value: number | string; accent: string; to?: string }) {
+  const inner = (
+    <div className="rounded-xl overflow-hidden flex h-full transition-transform hover:-translate-y-0.5" style={{ background: 'var(--panel)', border: '1px solid var(--line)' }}>
       <div style={{ width: 5, background: accent, flexShrink: 0 }} />
       <div className="p-4">
         <div className="text-2xl font-semibold tabular-nums" style={{ color: accent }}>{value}</div>
-        <div className="text-[12px] mt-0.5" style={{ color: 'var(--muted)' }}>{label}</div>
+        <div className="text-[12px] mt-0.5 flex items-center gap-1" style={{ color: 'var(--muted)' }}>{label}{to && <span style={{ color: accent }}>›</span>}</div>
       </div>
     </div>
   );
+  return to ? <Link to={to} className="block">{inner}</Link> : inner;
 }
 
 function AlertChip({ to, n, label, tone }: { to: string; n: number; label: string; tone: string }) {
@@ -44,13 +45,17 @@ function AlertChip({ to, n, label, tone }: { to: string; n: number; label: strin
   );
 }
 
+interface FacLoad { id: string; code: string; full_name: string; periods_week: number }
+
 export default function AdminHome() {
   const [o, setO] = useState<Overview | null>(null);
   const [a, setA] = useState<Alerts | null>(null);
+  const [top, setTop] = useState<FacLoad[]>([]);
 
   useEffect(() => {
     supabase.rpc('analytics_overview').then(({ data }) => setO((data ?? null) as Overview | null));
     supabase.rpc('admin_alerts').then(({ data }) => setA((data ?? null) as Alerts | null));
+    supabase.rpc('all_faculty_workload').then(({ data }) => setTop(((data ?? []) as FacLoad[]).slice(0, 6)));
   }, []);
 
   const attPct = o && o.att_records > 0 ? Math.round((o.att_present / o.att_records) * 100) : null;
@@ -72,22 +77,22 @@ export default function AdminHome() {
         <AlertChip to="/admin/audit" n={a?.audit_today ?? 0} label="Audit events today" tone="#1f3864" />
       </div>
 
-      {/* KPI grid */}
+      {/* KPI grid — every card drills down */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 mb-6">
-        <Kpi label="Students" value={o?.students_total ?? '—'} accent="#1f3864" />
-        <Kpi label="Faculty" value={o?.faculty_total ?? '—'} accent="#3d8168" />
-        <Kpi label="Sections" value={o?.sections_total ?? '—'} accent="#c08a2d" />
-        <Kpi label="Subjects" value={o?.subjects_total ?? '—'} accent="#7a4fb0" />
-        <Kpi label="Rooms in use" value={roomPct != null ? `${roomPct}%` : '—'} accent="#2d7d9a" />
-        <Kpi label="Attendance" value={attPct != null ? `${attPct}%` : '—'} accent="#b4473f" />
+        <Kpi label="Students" value={o?.students_total ?? '—'} accent="#1f3864" to="/admin/students" />
+        <Kpi label="Faculty" value={o?.faculty_total ?? '—'} accent="#3d8168" to="/admin/faculty" />
+        <Kpi label="Sections" value={o?.sections_total ?? '—'} accent="#c08a2d" to="/admin/sections" />
+        <Kpi label="Subjects" value={o?.subjects_total ?? '—'} accent="#7a4fb0" to="/admin/subjects" />
+        <Kpi label="Rooms in use" value={roomPct != null ? `${roomPct}%` : '—'} accent="#2d7d9a" to="/admin/rooms" />
+        <Kpi label="Attendance" value={attPct != null ? `${attPct}%` : '—'} accent="#b4473f" to="/admin/analytics" />
       </div>
 
       {/* Charts */}
       <div className="grid lg:grid-cols-3 gap-3 mb-6">
-        <Card title="Students by programme">
-          <BarList data={(o?.students_by_programme ?? []).map((p) => ({ label: p.code, sub: p.name, value: p.count }))} />
+        <Card title="Students by programme" right={<Link to="/admin/students" className="text-[12px]" style={{ color: 'var(--brand)' }}>All students ›</Link>}>
+          <BarList data={(o?.students_by_programme ?? []).map((p) => ({ label: p.code, sub: p.name, value: p.count, href: '/admin/students' }))} />
         </Card>
-        <Card title="Faculty record verification">
+        <Card title="Faculty record verification" right={<Link to="/committee/verify" className="text-[12px]" style={{ color: 'var(--brand)' }}>Review ›</Link>}>
           <Donut data={[
             { label: 'Approved', value: o?.verification.approved ?? 0, color: '#3d8168' },
             { label: 'Pending', value: o?.verification.pending ?? 0, color: '#c08a2d' },
@@ -95,8 +100,8 @@ export default function AdminHome() {
             { label: 'Rejected', value: o?.verification.rejected ?? 0, color: '#8a8a8a' },
           ]} />
         </Card>
-        <Card title="Busiest faculty (scheduled classes)">
-          <BarList unit="" data={(o?.top_faculty_load ?? []).slice(0, 6).map((f) => ({ label: f.code, sub: f.name, value: f.classes }))} />
+        <Card title="Busiest faculty (periods / week)" right={<Link to="/admin/workload" className="text-[12px]" style={{ color: 'var(--brand)' }}>Workload ›</Link>}>
+          <BarList unit="" data={top.map((f) => ({ label: f.code, sub: f.full_name, value: f.periods_week, href: `/admin/workload?faculty=${f.id}` }))} />
         </Card>
       </div>
 
