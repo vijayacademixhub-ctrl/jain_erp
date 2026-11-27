@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-const tabs = [{ to: '/committee', label: 'Timetable Console' }, { to: '/committee/daily', label: 'Daily Changes' }, { to: '/committee/verify', label: 'Record Verification' }];
+const tabs = [{ to: '/committee', label: 'Timetable Console' }, { to: '/committee/daily', label: 'Daily Changes' }, { to: '/committee/verify', label: 'Record Verification' }, { to: '/committee/reports', label: 'IQAC Reports' }];
 export function CommitteeNav() {
   const { pathname } = useLocation();
   return (

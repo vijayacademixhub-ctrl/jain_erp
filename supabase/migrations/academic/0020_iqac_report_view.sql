@@ -1,0 +1,2 @@
+-- Applied: v_iqac_report (approved faculty records + verification timestamp, for IQAC/NAAC
+-- reporting; traceable, no accreditation-criterion mapping applied).
