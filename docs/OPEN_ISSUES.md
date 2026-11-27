@@ -77,3 +77,11 @@
   prevented by unique(entry,date); substitute fields (subject_faculty vs taken_by) in place.
 - Next in M5: substitute/daily-TT reassignment UI (workload moves + dual attendance record),
   assessments/marks entry + publish, faculty records submit/verify, leave, notifications.
+
+## M5 assessments & marks — done (session 4 cont.)
+- Faculty Assessments page live: pick subject+section taught -> create assessment (own type;
+  7-assessment/5-exam cap enforced by DB trigger, verified the 8th is blocked) -> enter marks
+  in grid or via Excel template round-trip -> Save (unpublished) -> Publish (RPC, audited).
+  Students see marks only after publish (marks_read RLS). Verified end-to-end on live app.
+- Remaining M5: student-facing attendance% + published-marks view; faculty academic records
+  submit/verify; leave; notifications. Then M6 (analytics/IQAC/AI).

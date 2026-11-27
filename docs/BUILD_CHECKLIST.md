@@ -95,8 +95,8 @@ records, room equipment/building data, ERP identification, department structure.
 
 - [x] Attendance: timetable-linked sessions, duplicate-prevention (unique entry+date), submission, audited; combined-section rosters
 - [ ] Attendance analytics: subject-wise, shortage alerts, remedial tracking, correction requests
-- [ ] Assessments: creation, schedule, allocation, completion tracking, marks entry/verification
-- [ ] Marks visibility gated by publication status
+- [x] Assessments: creation (own type), 7/5 per-class limit enforced, marks entry (grid + Excel round-trip)
+- [x] Marks visibility gated by publication status (publish RPC; students see published only)
 - [ ] Faculty academic records (My Records): 14 categories, evidence upload, verification status
 - [x] Substitute assignment (daily changes): workload moves to substitute, both faculty on attendance record
 - [ ] Workload engine: daily/weekly/monthly/semester, planned vs recorded kept distinct
