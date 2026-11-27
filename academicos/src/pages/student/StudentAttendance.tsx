@@ -10,7 +10,7 @@ export default function StudentAttendance() {
   const [rows, setRows] = useState<Row[]>([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    supabase.from('v_student_attendance').select('*').then(({ data }) => { setRows((data ?? []) as Row[]); setLoading(false); });
+    supabase.rpc('my_attendance').then(({ data }) => { setRows((data ?? []) as Row[]); setLoading(false); });
   }, []);
 
   const overallTotal = rows.reduce((a, r) => a + r.total, 0);

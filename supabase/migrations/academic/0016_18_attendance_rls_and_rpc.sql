@@ -1,0 +1,3 @@
+-- Applied 0016-0018: student read-own-sessions policy; faculty_owns_session/student_in_session
+-- SECURITY DEFINER helpers to break sessions<->records RLS recursion; my_attendance() RPC
+-- (fast per-student summary). See DB for definitions.
