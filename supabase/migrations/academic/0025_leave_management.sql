@@ -1,0 +1,3 @@
+-- Applied: faculty_leaves table + RLS, apply_leave/decide_leave RPCs (planned>=1 day ahead,
+-- max 7 days, reason), notify_role helper. Notifies approvers on apply; faculty + committee
+-- on decision. Adopts the demo's leave rules (planned/unplanned).

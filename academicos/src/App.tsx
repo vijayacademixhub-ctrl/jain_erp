@@ -9,10 +9,12 @@ import FacultyHome from './pages/faculty/FacultyHome';
 import FacultyAttendance from './pages/faculty/FacultyAttendance';
 import FacultyAssessments from './pages/faculty/FacultyAssessments';
 import FacultyRecords from './pages/faculty/FacultyRecords';
+import FacultyLeave from './pages/faculty/FacultyLeave';
 import CommitteeHome from './pages/committee/CommitteeHome';
 import DailyChanges from './pages/committee/DailyChanges';
 import RecordVerification from './pages/committee/RecordVerification';
 import IQACReports from './pages/committee/IQACReports';
+import LeaveApprovals from './pages/committee/LeaveApprovals';
 import AdminHome from './pages/admin/AdminHome';
 import Analytics from './pages/admin/Analytics';
 
@@ -45,10 +47,12 @@ export default function App() {
       <Route path="/faculty/attendance" element={<FacultyAttendance />} />
       <Route path="/faculty/assessments" element={<FacultyAssessments />} />
       <Route path="/faculty/records" element={<FacultyRecords />} />
+      <Route path="/faculty/leave" element={<FacultyLeave />} />
       <Route path="/committee" element={<CommitteeHome />} />
       <Route path="/committee/daily" element={<DailyChanges />} />
       <Route path="/committee/verify" element={<RecordVerification />} />
       <Route path="/committee/reports" element={<IQACReports />} />
+      <Route path="/committee/leave" element={<LeaveApprovals />} />
       <Route path="/admin" element={<AdminHome />} />
       <Route path="/admin/analytics" element={<Analytics />} />
       <Route path="/no-access" element={<Splash text="No role is assigned to this account yet. Contact the Academic Office." />} />
