@@ -11,10 +11,18 @@ export default function Login() {
 
   async function submit(e: FormEvent) {
     e.preventDefault(); setBusy(true); setErr(null);
-    const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
+    const id = email.trim();
+    const candidates = id.includes('@') ? [id] : [
+      `${id.toLowerCase()}@students.cms-academicos.app`,
+      `${id.toLowerCase()}@faculty.cms-academicos.app`,
+    ];
+    let ok = false;
+    for (const cand of candidates) {
+      const { error } = await supabase.auth.signInWithPassword({ email: cand, password });
+      if (!error) { ok = true; break; }
+    }
     setBusy(false);
-    if (error) setErr(error.message);
-    else nav('/');
+    if (ok) nav('/'); else setErr('Invalid credentials. Use your USN, faculty code or email.');
   }
 
   return (
@@ -26,8 +34,8 @@ export default function Login() {
           <div><div className="font-semibold">CMS AcademicOS</div>
             <div style={{ color: 'var(--muted)' }} className="text-[11px]">Sign in to continue</div></div>
         </div>
-        <label className="block text-[12.5px] mb-1" style={{ color: 'var(--muted)' }}>Email or USN sign-in</label>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" autoComplete="username"
+        <label className="block text-[12.5px] mb-1" style={{ color: 'var(--muted)' }}>USN · Faculty code · Email</label>
+        <input value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="username"
           className="w-full rounded px-3 py-2 mb-3 text-sm" style={{ border: '1px solid var(--line)', background: 'var(--bg)' }} required />
         <label className="block text-[12.5px] mb-1" style={{ color: 'var(--muted)' }}>Password</label>
         <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" autoComplete="current-password"

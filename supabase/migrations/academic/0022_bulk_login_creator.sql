@@ -1,0 +1,4 @@
+-- Applied: create_student_logins(limit) / create_faculty_logins(limit) batch functions.
+-- Initial password = USN (students) / short_code (faculty), hashed in-DB; synthetic login
+-- email (<id>@students|faculty.cms-academicos.app) until institutional emails arrive.
+-- Executed to create all 2,603 student + 68 faculty accounts (active, role-assigned, linked).
