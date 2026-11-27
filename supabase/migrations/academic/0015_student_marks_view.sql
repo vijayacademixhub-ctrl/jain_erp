@@ -1,0 +1,1 @@
+-- Applied: v_student_marks (published marks for a student; RLS on marks gates to own+published).

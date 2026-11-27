@@ -2,6 +2,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth, primaryRole } from './lib/auth';
 import Login from './pages/Login';
 import StudentHome from './pages/student/StudentHome';
+import StudentAttendance from './pages/student/StudentAttendance';
+import StudentMarks from './pages/student/StudentMarks';
 import FacultyHome from './pages/faculty/FacultyHome';
 import FacultyAttendance from './pages/faculty/FacultyAttendance';
 import FacultyAssessments from './pages/faculty/FacultyAssessments';
@@ -31,6 +33,8 @@ export default function App() {
       <Route path="/login" element={<Navigate to="/" replace />} />
       <Route path="/" element={<Navigate to={landing} replace />} />
       <Route path="/student" element={<StudentHome />} />
+      <Route path="/student/attendance" element={<StudentAttendance />} />
+      <Route path="/student/marks" element={<StudentMarks />} />
       <Route path="/faculty" element={<FacultyHome />} />
       <Route path="/faculty/attendance" element={<FacultyAttendance />} />
       <Route path="/faculty/assessments" element={<FacultyAssessments />} />
