@@ -19,6 +19,7 @@ export default function AdminStudents() {
     <Layout title="Students">
       <AdminNav />
       <div className="rounded-xl p-4" style={{ background: 'var(--panel)', border: '1px solid var(--line)' }}>
+        {rows.length >= 1000 && <p className="text-[12px] mb-2" style={{ color: 'var(--muted)' }}>Showing the first 1,000 of 2,603 students — use search to find a specific USN or name.</p>}
         <DataTable
           headers={['USN', 'Name', 'Programme', 'Section', 'Sem', 'Status']}
           rows={rows.map((r) => [r.usn, r.full_name, r.programme, r.section ?? '—', r.semester ?? '—', r.status])}
