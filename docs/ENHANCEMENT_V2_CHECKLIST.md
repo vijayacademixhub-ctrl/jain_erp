@@ -37,9 +37,9 @@ Legend: ✅ have · 🟡 partial · ⬜ to build. Status as of session 4.
 ## 7. Room booking module  ⬜ (rooms imported; booking not built)
 - ⬜ Availability check, approval workflow, conflict detection, booking calendar (Seminar Halls, Studio, Board Room, Labs)
 
-## 8. Notification engine  ⬜ (in-app bell not built)
-- ⬜ Website bell notifications for faculty/students/super admin/TTC
-- ⬜ Triggers: leave approved/rejected, timetable updated, class cancelled, room changed, substitute assigned, new timetable published
+## 8. Notification engine  ✅ (in-app bell live)
+- ✅ Header bell (unread badge, dropdown, mark-read, deep links) for all roles; student Notifications page
+- ✅ Triggers live: substitute assigned, class change/cancel/room; record verified. (leave/publish added with those modules)
 - (email / mobile push: later)
 
 ## 9. Super Admin visual dashboard  🟡
@@ -65,8 +65,8 @@ Students(Dashboard/Timetable/Notifications/Downloads) · Leave · Room Booking �
 Reports · Audit Trail · Backup Center · Administration(Master/Super/Users/Permissions)
 
 ## Build order (one by one)
-1. Notifications engine (bell) — backbone for leave/timetable/substitution events  ← starting here
-2. Leave management workflow
+1. ✅ Notifications engine (bell) — DONE
+2. Leave management workflow  ← next
 3. Super-admin accounts (named) + approval gate in publish
 4. Room booking
 5. Audit Trail viewer
