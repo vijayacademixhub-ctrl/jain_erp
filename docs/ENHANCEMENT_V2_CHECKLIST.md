@@ -7,12 +7,12 @@ Legend: ✅ have · 🟡 partial · ⬜ to build. Status as of session 4.
 - ✅ Super Admins — named accounts seeded (Sharda Kanwar, Krishna Koppa, Jayashree, Chaitra, Yamini A V, Karishma, Hephzibah A Lazar), each `<local>@admin.cms-academicos.app`, role super_admin
 - 🟡 TTC dashboard — timetable console + daily changes ✅; leave, room bookings, change requests, audit, notifications ⬜
 - 🟡 Faculty dashboard — timetable/workload/attendance/assessments/records ✅; Faculty Notes ⬜, Leave module ⬜, richer workload breakdown ⬜
-- 🟡 Student portal — auto section + timetable/attendance/marks ✅; upcoming events, colour-coded today, notifications feed, more downloads ⬜
+- ✅ Student portal — auto section + timetable/attendance/marks + colour-coded today + upcoming events + notifications feed
 
 ## 2. Student portal
 - ✅ Auto-identify programme/semester/section from enrolment
 - ✅ Today / weekly timetable, faculty info, marks, attendance
-- ⬜ Colour-coded today, calendar view, upcoming events (unit tests/exams/seminars), notifications feed
+- ✅ **Colour-coded Today** (per-subject colours, NOW/NEXT highlight by current time), **Upcoming events** feed (unit tests/exams/seminars/assignments via section_upcoming_events, date-chips + countdown), weekly grid; notifications feed (bell + /student/notifications)
 - ✅ PDF + Excel downloads (timetable)
 
 ## 3. Timetable flow

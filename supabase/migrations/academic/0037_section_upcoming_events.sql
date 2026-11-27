@@ -1,0 +1,4 @@
+-- 0037 section_upcoming_events(section_id) -> published upcoming assessments
+-- (unit tests / internal & end-sem exams / assignments / seminars) for a
+-- section, with subject + faculty codes, date-sorted. Powers the student
+-- "Upcoming events" feed. Published info only (not sensitive).
