@@ -1,0 +1,3 @@
+-- Applied: analytics_overview() RPC (admin/committee/iqac) returning the institutional
+-- analytics payload (students/faculty/timetable/attendance/assessments/verification +
+-- breakdowns by programme/semester and top faculty load).

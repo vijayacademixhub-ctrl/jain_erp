@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Layout } from '../../components/Layout';
 import { supabase } from '../../lib/supabase';
 import { TimetableBrowser } from '../../components/TimetableBrowser';
+import { AdminNav } from '../../components/AdminNav';
 
 function Stat({ label, value }: { label: string; value: number | string }) {
   return (
@@ -25,6 +26,7 @@ export default function AdminHome() {
   }, []);
   return (
     <Layout title="Institutional Overview">
+      <AdminNav />
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
         <Stat label="Faculty" value={s.faculty ?? '—'} />
         <Stat label="Sections" value={s.sections ?? '—'} />
