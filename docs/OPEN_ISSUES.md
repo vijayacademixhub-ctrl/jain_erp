@@ -67,3 +67,13 @@
   linked to the VIJAY faculty row. Verified end-to-end: login → 869 entries visible,
   anon denied. Real logins arrive with the credentials document (role seed 0009).
 - TODO: lazy-load export libs (952KB chunk); M5 adds attendance/marks to the portals.
+
+## M5 attendance + students — started (session 4 cont.)
+- Imported 2,603 students + enrolments (REST API, PII never logged); rosters match strengths.
+  Closes M2. Student LOGIN accounts still pending the credentials document.
+- Attendance live end-to-end: faculty Attendance page (pick date -> day's classes -> roster
+  -> present/absent -> submit). Verified: VIJAY's combined Intro-to-AI class (BAV-A+BAV-B,
+  92 students) marked, session submitted, 89 present/3 absent recorded; duplicate session
+  prevented by unique(entry,date); substitute fields (subject_faculty vs taken_by) in place.
+- Next in M5: substitute/daily-TT reassignment UI (workload moves + dual attendance record),
+  assessments/marks entry + publish, faculty records submit/verify, leave, notifications.

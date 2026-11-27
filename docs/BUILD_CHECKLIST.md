@@ -59,7 +59,7 @@ records, room equipment/building data, ERP identification, department structure.
 - [x] Python import pipeline (preview → validation → idempotent SQL → verify totals)
 - [x] Import: departments, programmes (10), semesters, sections (50), rooms (35), periods/shifts (exact per-shift+Saturday timings)
 - [x] Import: faculty (68) with short-code identity + max weekly hours
-- [ ] Import: students (2,603) — **requires Q3 PII authorisation**
+- [x] Import: students (2,603) + enrolments (rosters match section strengths)
 - [x] Import: courses (48), subjects (145), faculty allocations (237)
 - [ ] Import: master timetable (869 sessions), date-wise expansion (4,230 rows)
 - [ ] Import: faculty leave plan, substitutions (274)
@@ -91,9 +91,9 @@ records, room equipment/building data, ERP identification, department structure.
 - [ ] Super Admin
 - [x] Role-based landing + RLS-enforced data (verified: admin sees 869, anon denied)
 
-## M5 — Academic operations `[ ]`
+## M5 — Academic operations `[~]`
 
-- [ ] Attendance: timetable-linked sessions, duplicate-session prevention, submission, audit on correction
+- [x] Attendance: timetable-linked sessions, duplicate-prevention (unique entry+date), submission, audited; combined-section rosters
 - [ ] Attendance analytics: subject-wise, shortage alerts, remedial tracking, correction requests
 - [ ] Assessments: creation, schedule, allocation, completion tracking, marks entry/verification
 - [ ] Marks visibility gated by publication status
