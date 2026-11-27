@@ -1,0 +1,3 @@
+-- Applied: record_tt_change(entry,date,type,new_faculty,new_room,reason) RPC
+-- (committee/admin only; substitution lets the new faculty mark that class and records
+-- taken_by=substitute vs subject_faculty=owner), v_daily_changes + v_faculty_scheduled_load.
